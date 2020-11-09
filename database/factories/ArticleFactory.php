@@ -17,7 +17,7 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
         'body' => $faker->text(),
         'excerpt' => $sentence,
         'user_id' => $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-        'category_id' => $faker->randomElement([1, 2, 3, 4]),
+        'category_id' => $faker->randomElement([1, 2, 3, 4, 5, 6]),
         'created_at' => $created_at,
         'updated_at' => $updated_at,
     ];
