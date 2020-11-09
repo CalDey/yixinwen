@@ -17101,3 +17101,7 @@ body {
   color: inherit;
 }
 
+.avatar {
+  border-radius: 50%;
+}
+
