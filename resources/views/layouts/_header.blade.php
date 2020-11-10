@@ -10,8 +10,15 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Left Side Of Navbar -->
-      <ul class="navbar-nav mr-auto">
 
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {{ active_class(if_route('articles.index')) }}"><a class="nav-link" href="{{ route('articles.index') }}">全部</a></li>
+        <li class="nav-item {{ category_nav_active(1) }}"><a class="nav-link" href="{{ route('categories.show', 1) }}">热点</a></li>
+        <li class="nav-item {{ category_nav_active(2) }}"><a class="nav-link" href="{{ route('categories.show', 2) }}">财经</a></li>
+        <li class="nav-item {{ category_nav_active(3) }}"><a class="nav-link" href="{{ route('categories.show', 3) }}">娱乐</a></li>
+        <li class="nav-item {{ category_nav_active(4) }}"><a class="nav-link" href="{{ route('categories.show', 4) }}">科技</a></li>
+        <li class="nav-item {{ category_nav_active(5) }}"><a class="nav-link" href="{{ route('categories.show', 5) }}">旅游</a></li>
+        <li class="nav-item {{ category_nav_active(6) }}"><a class="nav-link" href="{{ route('categories.show', 6) }}">体育</a></li>
       </ul>
 
       <!-- Right Side Of Navbar -->
