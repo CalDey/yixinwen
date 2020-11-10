@@ -14,10 +14,11 @@
     <div class="card ">
 
       <div class="card-header bg-transparent">
-        <ul class="nav nav-pills">
+        {{-- <ul class="nav nav-pills">
           <li class="nav-item"><a class="nav-link active" href="#">最后回复</a></li>
           <li class="nav-item"><a class="nav-link" href="#">最新发布</a></li>
-        </ul>
+        </ul> --}}
+        <h3>新闻列表</h3>
       </div>
 
       <div class="card-body">

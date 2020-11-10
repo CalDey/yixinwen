@@ -29,7 +29,10 @@
     {{-- 用户发布的内容 --}}
     <div class="card ">
       <div class="card-body">
-        暂无数据 ~_~
+        <div class="nav nav-tabs">
+          <h5>Ta 的文章</h5>
+        </div>
+        @include('users._articles',['articles'=>$user->articles()->paginate(5)])
       </div>
     </div>
 
