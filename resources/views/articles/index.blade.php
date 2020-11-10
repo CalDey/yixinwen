@@ -6,19 +6,24 @@
 
 <div class="row mb-5">
   <div class="col-lg-9 col-md-9 article-list">
-    @if (isset($category))
+    {{-- @if (isset($category))
       <div class="alert alert-info" role="alert">
         {{ $category->name }} ：{{ $category->description }}
       </div>
-    @endif
+    @endif --}}
     <div class="card ">
 
-      <div class="card-header bg-transparent">
+      <div class="card-header bg-transparent" style="background-color: rgba(0, 0, 0, 0.03) !important;">
         {{-- <ul class="nav nav-pills">
           <li class="nav-item"><a class="nav-link active" href="#">最后回复</a></li>
           <li class="nav-item"><a class="nav-link" href="#">最新发布</a></li>
         </ul> --}}
-        <h3>新闻列表</h3>
+      @if(!isset($category))
+      <h3>全部新闻</h3>
+      @else
+      <h3>{{ $category->name }}新闻</h3>
+      @endif
+
       </div>
 
       <div class="card-body">

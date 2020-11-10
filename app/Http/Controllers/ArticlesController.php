@@ -6,6 +6,8 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use App\Models\Category;
+use Auth;
 
 class ArticlesController extends Controller
 {
@@ -14,9 +16,11 @@ class ArticlesController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index()
+	public function index(Request $request, Article $article)
 	{
-		$articles = Article::with('user','category')->paginate(20);
+        $articles = $article->Recent($request)
+                            ->with('user','category') //预加载防止N+1
+                            ->paginate(20);
 		return view('articles.index', compact('articles'));
 	}
 
@@ -27,13 +31,16 @@ class ArticlesController extends Controller
 
 	public function create(Article $article)
 	{
-		return view('articles.create_and_edit', compact('article'));
+        $categories = Category::all();
+		return view('articles.create_and_edit', compact('article','categories'));
 	}
 
-	public function store(ArticleRequest $request)
+	public function store(ArticleRequest $request, Article $article)
 	{
-		$article = Article::create($request->all());
-		return redirect()->route('articles.show', $article->id)->with('message', 'Created successfully.');
+        $article->fill($request->all());
+        $article->user_id = Auth::id();
+        $article->save();
+		return redirect()->route('articles.show', $article->id)->with('success', '文章创建成功');
 	}
 
 	public function edit(Article $article)

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'body', 'user_id', 'category_id', 'reply_count', 'view_count', 'last_reply_user_id', 'order', 'excerpt', 'slug'];
+    protected $fillable = ['title', 'body', 'category_id'];
 
     public function category()
     {
@@ -17,6 +17,12 @@ class Article extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scopeRecent($query)
+    {
+        //按照创建时间排序
+        return $query-> orderBy('created_at','desc');
     }
 
     protected static function boot()
