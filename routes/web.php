@@ -24,3 +24,5 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::resource('categories', 'CategoriesController',['only'=>['show']]);
+
+Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
