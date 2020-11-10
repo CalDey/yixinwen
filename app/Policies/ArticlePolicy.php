@@ -9,12 +9,12 @@ class ArticlePolicy extends Policy
 {
     public function update(User $user, Article $article)
     {
-        return $article->user_id == $user->id;
+        return $user->isAuthorOf($article);
         // return true;
     }
 
     public function destroy(User $user, Article $article)
     {
-        return true;
+        return $user->isAuthorOf($article);
     }
 }
