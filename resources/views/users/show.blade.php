@@ -29,10 +29,40 @@
     {{-- 用户发布的内容 --}}
     <div class="card ">
       <div class="card-body">
-        <div class="nav nav-tabs">
-          <h5>Ta 的文章</h5>
-        </div>
-        @include('users._articles',['articles'=>$user->articles()->paginate(5)])
+        @if(Auth::id() == $user->id)
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link bg-transparent {{ active_class(if_query('tab', null)) }}" href="{{ route('users.show', $user->id) }}">
+              我的文章
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-transparent {{ active_class(if_query('tab', 'audit_pass')) }}" href="{{ route('users.show', [$user->id, 'tab' => 'audit_pass']) }}">
+              审核通过
+            </a>
+          <li class="nav-item">
+            <a class="nav-link bg-transparent {{ active_class(if_query('tab', 'audit_sec')) }}" href="{{ route('users.show', [$user->id, 'tab' => 'audit_sec']) }}">
+              二次审核
+            </a>
+          </li>
+        </ul>
+          @if (if_query('tab', 'audit_pass'))
+            @include('users._articles',['articles'=>$user->articles()->where('status','1')->recent()->paginate(5)])
+          @elseif (if_query('tab', 'audit_sec'))
+            @include('users._articles',['articles'=>$user->articles()->where('status','-1')->recent()->paginate(5)])
+          @else
+            @include('users._articles',['articles'=>$user->articles()->recent()->paginate(5)])
+          @endif
+        @else
+          {{-- <h5>我的文章</h5> --}}
+          {{-- // @else --}}
+          <div class="nav nav-tabs">
+              <h5>Ta的文章</h5>
+          </div>
+          @include('users._articles',['articles'=>$user->articles()->where('status','1')->recent()->paginate(5)])
+      @endif
+
+
       </div>
     </div>
 

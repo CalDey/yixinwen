@@ -16,6 +16,8 @@
   </ul>
 
 @else
+  <br>
+  <br>
   <div class="empty-block">暂无数据 ~_~ </div>
 @endif
 

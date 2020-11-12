@@ -44,6 +44,11 @@
             {!! $article->body !!}
           </div>
 
+          @if($article->status == -1)
+          <div class="alert alert-info" role="alert">
+            修改意见： {{ $article->suggestion }}
+          </div>
+
           @can('update', $article)
           <div class="operate">
             <hr>
@@ -61,6 +66,7 @@
             </form>
           </div>
         @endcan
+        @endif
       </div>
     </div>
   </div>

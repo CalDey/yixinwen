@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 
 class Article extends Model
 {
+
+    use DefaultDatetimeFormat;
+
     protected $fillable = ['title', 'body', 'category_id'];
 
     public function category()
@@ -30,7 +34,7 @@ class Article extends Model
         parent::boot();
 
         static::addGlobalScope("avaiable",function(Builder $builder){
-            $builder->whereIn('status',[0,1]);
+            $builder->whereIn('status',[0,1,2,-1]);
         });
     }
 

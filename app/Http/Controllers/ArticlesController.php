@@ -19,7 +19,8 @@ class ArticlesController extends Controller
 
 	public function index(Request $request, Article $article)
 	{
-        $articles = $article->Recent($request)
+        $articles = $article->where('status', 1)
+                            ->Recent($request)
                             ->with('user','category') //预加载防止N+1
                             ->paginate(20);
 		return view('articles.index', compact('articles'));
@@ -54,7 +55,9 @@ class ArticlesController extends Controller
 	public function update(ArticleRequest $request, Article $article)
 	{
 		$this->authorize('update', $article);
-		$article->update($request->all());
+        $article->update($request->all());
+        $article->status = '2';
+        $article->save();
 
 		return redirect()->route('articles.show', $article->id)->with('message', 'Updated successfully.');
 	}
