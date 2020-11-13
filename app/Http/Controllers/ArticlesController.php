@@ -92,4 +92,13 @@ class ArticlesController extends Controller
         return $data;
     }
 
+    public function recommend(Request $request, Article $article)
+	{
+        $articles = $article->where('is_recommend', 1)
+                            ->Recent($request)
+                            ->with('user','category') //预加载防止N+1
+                            ->paginate(20);
+		return view('articles.recommend', compact('articles'));
+	}
+
 }
