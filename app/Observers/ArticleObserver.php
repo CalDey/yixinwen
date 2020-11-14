@@ -9,13 +9,11 @@ use App\Models\Article;
 
 class ArticleObserver
 {
-    public function creating(Article $article)
+    public function saving(Article $article)
     {
-        //
+        $article->body = clean($article->body, 'user_aticle_body');
+
+        $article->excerpt = make_excerpt($article->body);
     }
 
-    public function updating(Article $article)
-    {
-        //
-    }
 }
