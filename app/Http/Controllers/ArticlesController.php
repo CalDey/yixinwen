@@ -14,14 +14,14 @@ class ArticlesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show','recommend']]);
     }
 
 	public function index(Request $request, Article $article)
 	{
         $articles = $article->where('status', 1)
                             ->Recent($request)
-                            ->with('user','category') //预加载防止N+1
+                            ->with('user','category') // 预加载防止N+1
                             ->paginate(20);
 		return view('articles.index', compact('articles'));
 	}

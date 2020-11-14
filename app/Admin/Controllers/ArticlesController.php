@@ -35,8 +35,9 @@ class ArticlesController extends AdminController
         $grid->selector(function (Grid\Tools\Selector $selector) {
             $selector->select('status', '审核状态', [
                 0 => '未审核',
-                1 => '审核通过',
+                1 => '通过',
                 2 => '复审',
+
             ]);
             $selector->select('category_id', '文章分类', [
                 1 => '热点',
@@ -46,10 +47,10 @@ class ArticlesController extends AdminController
                 5 => '旅游',
                 6 => '体育',
             ]);
-            if (Admin::user()->can('chief-editor')) {
+            if (!Admin::user()->can('editor')) {
                 $selector->select('is_recommend', '首页推荐', [
-                    -1 => '已申请',
-                    1 => '已推荐',
+                    -1 => '申请',
+                    1 => '推荐',
                 ]);
             }
 
@@ -69,7 +70,7 @@ class ArticlesController extends AdminController
             return Category::find($CategoryId)->name;
         });
         // $grid->column('order', __('Order'));
-        $grid->status('审核状态')->using(['0' => '未审核', '1' => '审核通过', '2'=>'复审']);
+        $grid->status('审核状态')->using(['0' => '未审核', '1' => '通过', '2'=>'复审']);
         $grid->created_at('发布时间')->sortable();
         $grid->updated_at('修改时间')->sortable();
 
@@ -118,7 +119,8 @@ class ArticlesController extends AdminController
         $form = new Form(new Article());
 
         $form->text('title', __('标题'));
-        $form->textarea('body', __('内容'));
+        // $form->textarea('body', __('内容'));
+        $form->simditor('body', __('内容'));
         // $form->number('user_id', __('User id'));
         // $form->number('category_id', __('Category id'));
         // $form->number('order', __('Order'));
@@ -131,14 +133,16 @@ class ArticlesController extends AdminController
 
         // $form->switch('status', __('审核'))->states($states);
 
-        //获取当前模型ID
+        //获取当前模型ID(最好封装成函数)
         $arr = request()->route()->parameters();
         $id = (isset($arr['article'])?$arr['article']:0);
         if($id){
         $info = Article::where('id',$id)->findOrFail($id);
         $audit_status = $info['status'];
+        $recommend = $info['is_recommend'];
         }
 
+        // 审核是否通过
         if ($audit_status != 2) {
 
             $status = [
@@ -146,7 +150,50 @@ class ArticlesController extends AdminController
                 -1 => '不通过',
             ];
 
+            // 第一次审核->通过审核是否推荐
             $form->select('status', '审核状态')->options($status)->when(1, function(Form $form) {
+
+                // 编辑权限 推荐申请
+                if (Admin::user()->can('editor')) {
+
+                    $arr = request()->route()->parameters();
+                    $id = (isset($arr['article'])?$arr['article']:0);
+                    if($id){
+                    $info = Article::where('id',$id)->findOrFail($id);
+                    $recommend = $info['is_recommend'];
+                    }
+
+                    if ($recommend != 1) {
+                        $form->radioButton('is_recommend', '是否推荐')->options(['-1' => '推荐', '0'=> '不推荐'])->default('0');
+                    }
+
+                }
+
+                // 高级编辑权限
+                if (Admin::user()->can('chief-editor')) {
+                    $form-> switch('is_recommend', '推荐');
+                }
+
+
+            // 未审核通过,提交修改意见
+            })->when(-1, function (Form $form) {
+
+                $form->textarea('suggestion', __('修改意见'));
+
+            });
+
+        }
+
+        else {
+
+            // 第二次审核->复审是否通过->是否推荐
+            $status = [
+                1 => '通过',
+                -2 => '不通过',
+            ];
+
+            // 复审通过
+            $form->select('status', '二次审核')->options($status)->when(1, function(Form $form) {
 
                 // 编辑权限 推荐申请
                 if (Admin::user()->can('editor')) {
@@ -158,34 +205,29 @@ class ArticlesController extends AdminController
                     $form-> switch('is_recommend', '推荐');
                 }
 
-
-            })->when(-1, function (Form $form) {
-
-                $form->textarea('suggestion', __('修改意见'));
-
             });
 
         }
 
-        else {
+        $form->tools(function (Form\Tools $tools) {
 
-            $status = [
-                1 => '通过',
-                -2 => '不通过',
-            ];
+            // 去掉`查看`按钮
+            $tools->disableView();
 
-            $form->select('status', '二次审核')->options($status);
+        });
 
-        }
+        $form->footer(function ($footer) {
 
-        //获取当前模型ID
-        // $arr = request()->route()->parameters();
-        // $id = (isset($arr['article'])?$arr['article']:0);
-        // if($id){
-        // $info = Article::where('id',$id)->findOrFail($id);
-        // $audit_status = $info['status'];
-        // }
-        // dd($audit_status);
+            // 去掉`查看`checkbox
+            $footer->disableViewCheck();
+
+            // 去掉`继续编辑`checkbox
+            $footer->disableEditingCheck();
+
+            // 去掉`继续创建`checkbox
+            $footer->disableCreatingCheck();
+
+        });
 
         return $form;
     }
