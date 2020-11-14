@@ -22,7 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 
-Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('articles', 'ArticlesController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+Route::get('articles/{article}/{slug?}', 'ArticlesController@show')->name('articles.show');
 
 Route::resource('categories', 'CategoriesController',['only'=>['show']]);
 

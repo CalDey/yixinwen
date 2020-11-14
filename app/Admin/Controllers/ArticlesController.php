@@ -47,7 +47,7 @@ class ArticlesController extends AdminController
                 5 => '旅游',
                 6 => '体育',
             ]);
-            if (!Admin::user()->can('editor')) {
+            if (Admin::user()->can('chief-editor')) {
                 $selector->select('is_recommend', '首页推荐', [
                     -1 => '申请',
                     1 => '推荐',

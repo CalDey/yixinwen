@@ -26,8 +26,14 @@ class ArticlesController extends Controller
 		return view('articles.index', compact('articles'));
 	}
 
-    public function show(Article $article)
+    public function show(Request $request, Article $article)
     {
+
+        // 纠正url
+        if (!empty($article->slug) && $article->slug != $request->slug) {
+            return redirect($article->link(), 301);
+        }
+
         return view('articles.show', compact('article'));
     }
 
@@ -42,7 +48,7 @@ class ArticlesController extends Controller
         $article->fill($request->all());
         $article->user_id = Auth::id();
         $article->save();
-		return redirect()->route('articles.show', $article->id)->with('success', '文章创建成功');
+		return redirect()->to($article->link())->with('success', '文章创建成功');
 	}
 
 	public function edit(Article $article)
@@ -59,7 +65,7 @@ class ArticlesController extends Controller
         $article->status = '2';
         $article->save();
 
-		return redirect()->route('articles.show', $article->id)->with('message', 'Updated successfully.');
+		return redirect()->to($article->link())->with('message', 'Updated successfully.');
 	}
 
 	public function destroy(Article $article)
