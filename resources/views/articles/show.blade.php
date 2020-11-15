@@ -35,9 +35,9 @@
           <div class="article-meta text-center text-secondary">
             <i class="far fa-clock"></i>
             {{ $article->created_at->diffForHumans() }}
-            {{-- ⋅
+            ⋅
             <i class="far fa-comment"></i>
-            {{ $article->reply_count }} --}}
+            {{ $article->reply_count }}
           </div>
 
           <div class="article-body mt-4 mb-4">
@@ -73,7 +73,7 @@
     {{-- 用户回复列表 --}}
     <div class="card article-reply mt-4">
       <div class="card-body">
-          @include('articles._reply_box', ['article' => $article])
+          @includeWhen(Auth::check(), 'articles._reply_box', ['article'=> $article])
           @include('articles._reply_list', ['replies' => $article->replies()->with('user')->get()])
       </div>
     </div>
