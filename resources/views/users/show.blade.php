@@ -45,11 +45,18 @@
               二次审核
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link bg-transparent {{ active_class(if_query('tab', 'replies')) }}" href="{{ route('users.show', [$user->id, 'tab' => 'replies']) }}">
+              我的回复
+            </a>
+          </li>
         </ul>
           @if (if_query('tab', 'audit_pass'))
             @include('users._articles',['articles'=>$user->articles()->where('status','1')->recent()->paginate(5)])
           @elseif (if_query('tab', 'audit_sec'))
             @include('users._articles',['articles'=>$user->articles()->where('status','-1')->recent()->paginate(5)])
+          @elseif (if_query('tab', 'replies'))
+            @include('users._replies',['replies'=>$user->replies()->with('article')->recent()->paginate(5)])
           @else
             @include('users._articles',['articles'=>$user->articles()->recent()->paginate(5)])
           @endif
