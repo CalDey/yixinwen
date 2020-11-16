@@ -48,13 +48,15 @@
           <div class="alert alert-info" role="alert">
             修改意见： {{ $article->suggestion }}
           </div>
-
+          @endif
           @can('update', $article)
           <div class="operate">
             <hr>
+            @if($article->status == -1)
             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
               <i class="far fa-edit"></i> 编辑
             </a>
+            @endif
             <form action="{{ route('articles.destroy', $article->id) }}" method="post"
                   style="display: inline-block;"
                   onsubmit="return confirm('您确定要删除吗？');">
@@ -66,7 +68,6 @@
             </form>
           </div>
         @endcan
-        @endif
       </div>
     </div>
 
