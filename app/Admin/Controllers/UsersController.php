@@ -26,7 +26,7 @@ class UsersController extends AdminController
     {
         $grid = new Grid(new User());
 
-        $grid->id('Id');
+        $grid->id('ID');
         $grid->avatar('头像')->image(config('app.url'), 50, 50);
         $grid->name('用户名');
         $grid->email('邮箱');
