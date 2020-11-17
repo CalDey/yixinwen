@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Category;
 use Auth;
+use App\Models\User;
 use App\Handlers\ImageUploadHandler;
 
 class ArticlesController extends Controller
@@ -17,13 +18,17 @@ class ArticlesController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show','recommend']]);
     }
 
-	public function index(Request $request, Article $article)
+	public function index(Request $request, Article $article, User $user)
 	{
         $articles = $article->where('status', 1)
                             ->withOrder($request->order)
                             ->with('user','category') // 预加载防止N+1
                             ->paginate(20);
-		return view('articles.index', compact('articles'));
+
+        $active_users = $user->getActiveUsers();
+        // dd($active_users);
+
+		return view('articles.index', compact('articles', 'active_users'));
 	}
 
     public function show(Request $request, Article $article)
@@ -98,13 +103,16 @@ class ArticlesController extends Controller
         return $data;
     }
 
-    public function recommend(Request $request, Article $article)
+    public function recommend(Request $request, Article $article, User $user)
 	{
         $articles = $article->where('is_recommend', 1)
                             ->Recent($request)
                             ->with('user','category') //预加载防止N+1
                             ->paginate(20);
-		return view('articles.recommend', compact('articles'));
+        // 活跃用户列表
+        $active_users = $user->getActiveUsers();
+
+		return view('articles.recommend', compact('articles','active_users'));
 	}
 
 }

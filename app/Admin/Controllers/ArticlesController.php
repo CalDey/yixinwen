@@ -119,19 +119,7 @@ class ArticlesController extends AdminController
         $form = new Form(new Article());
 
         $form->text('title', __('标题'));
-        // $form->textarea('body', __('内容'));
         $form->simditor('body', __('内容'));
-        // $form->number('user_id', __('User id'));
-        // $form->number('category_id', __('Category id'));
-        // $form->number('order', __('Order'));
-        // $form->switch('status', __('Status'));
-        // $form->textarea('suggestion', __('修改意见'));
-        // $states = [
-        //     'on'  => ['value' => 1, 'text' => '通过', 'color' => 'success'],
-        //     'off' => ['value' => -1, 'text' => '不通过', 'color' => 'danger'],
-        // ];
-
-        // $form->switch('status', __('审核'))->states($states);
 
         //获取当前模型ID(最好封装成函数)
         $arr = request()->route()->parameters();
