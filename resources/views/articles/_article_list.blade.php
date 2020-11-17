@@ -32,8 +32,16 @@
               {{ $article->user->name }}
             </a>
             <span> • </span>
-            <i class="far fa-clock"></i>
+            <i class="far fa-comment"></i>
             <span class="timeago" title="最后活跃于：{{ $article->updated_at }}">{{ $article->updated_at->diffForHumans() }}</span>
+
+            <span> • </span>
+            <i class="far fa-eye"></i>
+            <span class="timeago" title="阅览数：{{ visits($article)->count() }}">{{ $article->visits()->count() }}</span>
+
+            <span> • </span>
+            <i class="far fa-clock"></i>
+            <span class="timeago" title="发表时间：{{ $article->created_at }}">{{ $article->created_at->toDateTimeString() }}</span>
           </small>
 
         </div>

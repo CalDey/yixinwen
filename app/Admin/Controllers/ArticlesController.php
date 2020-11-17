@@ -121,7 +121,7 @@ class ArticlesController extends AdminController
         $form->text('title', __('标题'));
         $form->simditor('body', __('内容'));
 
-        //获取当前模型ID(最好封装成函数)
+        //获取当前模型ID(等待封装成函数)
         $arr = request()->route()->parameters();
         $id = (isset($arr['article'])?$arr['article']:0);
         if($id){

@@ -66,6 +66,11 @@ class Article extends Model
         $this->save();
     }
 
+    public function visits()
+    {
+        return visits($this);
+    }
+
     protected static function boot()
     {
         parent::boot();

@@ -2,7 +2,7 @@
   <div class="container">
       <!-- Branding Image -->
       <a class="navbar-brand " href="{{ url('/') }}">
-      易新闻
+      <strong style="color: #ff455b">易</strong>新闻
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

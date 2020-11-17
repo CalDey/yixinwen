@@ -16,7 +16,7 @@
       <div class="navbar navbar-default bg-transparent" style="background-color: rgba(0, 0, 0, 0.03) !important;">
         <div class="container-fluid">
             <div class="navbar-header">
-              <h3>今日推荐</h3>
+              <h3>精彩推荐</h3>
             </div>
             <ul class="nav nav-pills navbar-right">
               <li class="nav-item"><a class="nav-link {{ active_class( ! if_query('order', 'recent')) }}" href="{{ Request::url() }}?order=default">最后回复</a></li>

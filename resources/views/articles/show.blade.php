@@ -14,12 +14,37 @@
             作者：{{ $article->user->name }}
           </div>
           <hr>
-          <div class="media">
+          {{-- <div class="media"> --}}
+          <div>
             <div align="center">
               <a href="{{ route('users.show', $article->user->id) }}">
                 <img class="thumbnail img-fluid" src="{{ $article->user->avatar }}" width="300px" height="300px">
               </a>
             </div>
+            <hr>
+            {{-- 个人简介 --}}
+            <h5><strong>个人简介</strong></h5>
+            <p>{{$article->user->introduction}}</p>
+            <hr>
+            {{-- 统计 --}}
+            <a><strong class="stat">
+              {{$article->user->articles()->count()}}
+            </strong>
+            投稿
+            </a>
+            &nbsp;
+            <a><strong class="stat">
+              {{$article->user->articles()->where('status','1')->count()}}
+            </strong>
+            过审
+            </a>
+            &nbsp;
+            <a><strong class="stat">
+              {{$article->user->articles()->where('is_recommend','1')->count()}}
+            </strong>
+            推荐
+            </a>
+
           </div>
         </div>
       </div>
@@ -36,9 +61,15 @@
             <i class="far fa-clock"></i>
             {{ $article->created_at->diffForHumans() }}
             ⋅
+            <i class="far fa-eye"></i>
+            {{-- {{ $article->view_count }} --}}
+            {{ $article->visits()->count() }}
+            ⋅
             <i class="far fa-comment"></i>
             {{ $article->reply_count }}
+
           </div>
+
 
           <div class="article-body mt-4 mb-4">
             {!! $article->body !!}

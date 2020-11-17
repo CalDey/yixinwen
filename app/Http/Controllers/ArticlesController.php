@@ -39,6 +39,9 @@ class ArticlesController extends Controller
             return redirect($article->link(), 301);
         }
 
+        // $article->increment('view_count', 1, ['updated_at' => $article->updated_at]);
+        $article->visits()->increment();
+
         return view('articles.show', compact('article'));
     }
 
@@ -113,6 +116,6 @@ class ArticlesController extends Controller
         $active_users = $user->getActiveUsers();
 
 		return view('articles.recommend', compact('articles','active_users'));
-	}
+    }
 
 }

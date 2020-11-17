@@ -23,7 +23,7 @@ class ArticleObserver
     public function saved(Article $article)
     {
         // 如 slug 字段无内容，即使用翻译器对 title 进行翻译
-        if ( !$article->slug) {
+        if ( !$article->slug || $article->isDirty('title')) {
 
             // $article->slug = app(SlugTranslateHandler::class)->translate($article->title);
 

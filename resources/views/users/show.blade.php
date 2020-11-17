@@ -13,8 +13,24 @@
             <h5><strong>个人简介</strong></h5>
             <p>{{$user->introduction}}</p>
             <hr>
-            <h5><strong>注册于</strong></h5>
-            <p>{{$user->created_at->diffForHumans()}}</p>
+            <a><strong class="stat">
+              {{$user->articles()->count()}}
+            </strong>
+            投稿
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a><strong class="stat">
+              {{$user->articles()->where('status','1')->count()}}
+            </strong>
+            过审
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a><strong class="stat">
+              {{$user->articles()->where('is_recommend','1')->count()}}
+            </strong>
+            推荐
+            </a>
+
       </div>
     </div>
   </div>
@@ -52,9 +68,9 @@
           </li>
         </ul>
           @if (if_query('tab', 'audit_pass'))
-            @include('users._articles',['articles'=>$user->articles()->where('status','1')->recent()->paginate(10)])
+            @include('users._articles_audit_pass',['articles'=>$user->articles()->where('status','1')->recent()->paginate(10)])
           @elseif (if_query('tab', 'audit_sec'))
-            @include('users._articles',['articles'=>$user->articles()->where('status','-1')->recent()->paginate(10)])
+            @include('users._articles_audit_sec',['articles'=>$user->articles()->where('status','-1')->recent()->paginate(10)])
           @elseif (if_query('tab', 'replies'))
             @include('users._replies',['replies'=>$user->replies()->with('article')->recent()->paginate(5)])
           @else
