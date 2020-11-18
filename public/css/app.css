@@ -17107,7 +17107,7 @@ body {
 
 /* Article Index Page */
 
-.-page .article-list .nav > li > a,
+.root-page .article-list .nav > li > a,
 .articles-index-page .article-list .nav > li > a,
 .categories-show-page .article-list .nav > li > a {
   position: relative;
@@ -17116,32 +17116,32 @@ body {
   font-size: 0.9em;
 }
 
-.-page .article-list a,
+.root-page .article-list a,
 .articles-index-page .article-list a,
 .categories-show-page .article-list a {
   color: #444444;
 }
 
-.-page .article-list .meta,
+.root-page .article-list .meta,
 .articles-index-page .article-list .meta,
 .categories-show-page .article-list .meta {
   font-size: 0.9em;
   color: #b3b3b3;
 }
 
-.-page .article-list .meta a,
+.root-page .article-list .meta a,
 .articles-index-page .article-list .meta a,
 .categories-show-page .article-list .meta a {
   color: #b3b3b3;
 }
 
-.-page .article-list .badge,
+.root-page .article-list .badge,
 .articles-index-page .article-list .badge,
 .categories-show-page .article-list .badge {
   background-color: #d8d8d8;
 }
 
-.-page .article-list hr,
+.root-page .article-list hr,
 .articles-index-page .article-list hr,
 .categories-show-page .article-list hr {
   margin-top: 12px;

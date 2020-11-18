@@ -10,6 +10,7 @@ use Auth;
 
 class User extends Authenticatable
 {
+    use Traits\LastActivedAtHelper;
     use Traits\ActiveUserHelper;
     use DefaultDatetimeFormat;
     use Notifiable {

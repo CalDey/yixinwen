@@ -13,6 +13,11 @@
             <h5><strong>个人简介</strong></h5>
             <p>{{$user->introduction}}</p>
             <hr>
+
+            <h5><strong>最后活跃</strong></h5>
+            <p title="{{  $user->last_actived_at }}">{{ $user->last_actived_at->diffForHumans() }}</p>
+            <hr>
+
             <a><strong class="stat">
               {{$user->articles()->count()}}
             </strong>
@@ -30,6 +35,7 @@
             </strong>
             推荐
             </a>
+
 
       </div>
     </div>
