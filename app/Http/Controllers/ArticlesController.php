@@ -108,6 +108,7 @@ class ArticlesController extends Controller
 
     public function recommend(Request $request, Article $article, User $user)
 	{
+        // dd(\Auth::user()->hasVerifiedEmail());
         $articles = $article->where('is_recommend', 1)
                             ->Recent($request)
                             ->with('user','category') //预加载防止N+1

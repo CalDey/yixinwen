@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/','PagesController@root')->name('root');
-Route::get('/','ArticlesController@recommend')->name('root');
+Route::get('/','ArticlesController@recommend')->name('root')->middleware('verified');
 
-Auth::routes();
+Auth::routes(['verify' => true ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 

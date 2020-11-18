@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Auth;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Traits\LastActivedAtHelper;
     use Traits\ActiveUserHelper;
@@ -47,7 +47,7 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
         if(empty($value)){
-            return "https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600";
+            return "https://cdn.learnku.com/uploads/images/201710/14/1/s5ehp11z6s.png";
         }
         return $value;
     }
@@ -67,20 +67,31 @@ class User extends Authenticatable
         return $this->id == $model->user_id;
     }
 
-    public function notify($instance)
-    {
-        // 如果要通知的人是当前用户，就不必通知了！
-        if ($this->id == Auth::id()) {
-            return;
-        }
+    // public function notify($instance)
+    // {
+    //     // 如果要通知的人是当前用户，就不必通知了！
+    //     if ($this->id == Auth::id()) {
+    //         return;
+    //     }
 
-        // 只有数据库类型通知才需提醒，直接发送 Email 或者其他的都 Pass
-        if (method_exists($instance, 'toDatabase')) {
-            $this->increment('notification_count');
-        }
+    //     // 只有数据库类型通知才需提醒，直接发送 Email 或者其他的都 Pass
+    //     if (method_exists($instance, 'toDatabase')) {
+    //         $this->increment('notification_count');
+    //     }
 
-        $this->laravelNotify($instance);
+    //     $this->laravelNotify($instance);
+    // }
+
+    // Notify改进
+    public function topicNotify($instance)
+{
+    // 如果要通知的人是当前用户，就不必通知了！
+    if ($this->id == Auth::id()) {
+        return;
     }
+    $this->increment('notification_count');
+    $this->notify($instance);
+}
 
     public function markAsRead()
     {
