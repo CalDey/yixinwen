@@ -23,27 +23,29 @@
             </div>
             <hr>
             {{-- 个人简介 --}}
-            <h5><strong>个人简介</strong></h5>
-            <p>{{$article->user->introduction}}</p>
+            <h5 style="text-align: center;"><strong>个人简介</strong></h5>
+            <p style="text-align: center;">{{$article->user->introduction}}</p>
             <hr>
             {{-- 统计 --}}
-            <a><strong class="stat">
-              {{$article->user->articles()->count()}}
-            </strong>
-            投稿
-            </a>
-            &nbsp;
-            <a><strong class="stat">
-              {{$article->user->articles()->where('status','1')->count()}}
-            </strong>
-            过审
-            </a>
-            &nbsp;
-            <a><strong class="stat">
-              {{$article->user->articles()->where('is_recommend','1')->count()}}
-            </strong>
-            推荐
-            </a>
+            <div style="text-align: center;">
+              <a><strong class="stat">
+                {{$article->user->articles()->count()}}
+              </strong>
+              投稿
+              </a>
+              &nbsp;
+              <a><strong class="stat">
+                {{$article->user->articles()->where('status','1')->count()}}
+              </strong>
+              过审
+              </a>
+              &nbsp;
+              <a><strong class="stat">
+                {{$article->user->articles()->where('is_recommend','1')->count()}}
+              </strong>
+              推荐
+              </a>
+            </div>
 
           </div>
         </div>

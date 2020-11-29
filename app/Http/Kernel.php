@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         // 在 RouteServiceProvider 中设定
         'api' => [
             // 使用别名来调用中间件
+            \App\Http\Middleware\AcceptHeader::class,
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -97,4 +98,5 @@ class Kernel extends HttpKernel
         // Laravel 自带的强制用户邮箱认证的中间件，为了更加贴近我们的逻辑，已被重写
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
 }
