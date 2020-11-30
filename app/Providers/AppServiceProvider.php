@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Http\Resources\Json\JsonResource;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +29,10 @@ class AppServiceProvider extends ServiceProvider
 	{
 		\App\Models\User::observe(\App\Observers\UserObserver::class);
 		\App\Models\Reply::observe(\App\Observers\ReplyObserver::class);
-		\App\Models\Article::observe(\App\Observers\ArticleObserver::class);
+        \App\Models\Article::observe(\App\Observers\ArticleObserver::class);
+
+        // 去除data嵌套
+        JsonResource::withoutWrapping();
 
         //
     }
