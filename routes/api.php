@@ -39,6 +39,16 @@ Route::prefix('v1')
                 ->where('social_type', 'wechat')
                 ->name('socials.authorizations.store');
             });
+                // 用户登录
+                Route::post('authorizations', 'AuthorizationsController@store')
+                      ->name('authorizations.store');
+
+                // 刷新token
+                Route::put('authorizations/current', 'AuthorizationsController@update')
+                    ->name('authorizations.update');
+                // 删除token
+                Route::delete('authorizations/current', 'AuthorizationsController@destroy')
+                    ->name('authorizations.destroy');
 
         Route::middleware('throttle:' . config('api.rate_limits.access'))
             ->group(function () {
