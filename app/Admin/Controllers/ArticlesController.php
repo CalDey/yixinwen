@@ -32,11 +32,27 @@ class ArticlesController extends AdminController
     {
         $grid = new Grid(new Article());
 
+        $grid->filter(function($filter){
+
+            // 在这里添加字段过滤器
+            $filter->like('title', '标题');
+
+            $filter->where(function ($query) {
+
+                $query->whereHas('user', function ($query) {
+                    $query->where('name', 'like', "%{$this->input}%");
+                });
+
+            }, '作者');
+
+        });
+
         $grid->selector(function (Grid\Tools\Selector $selector) {
             $selector->select('status', '审核状态', [
                 0 => '未审核',
                 1 => '通过',
                 2 => '复审',
+                -1 => '未通过',
 
             ]);
             $selector->select('category_id', '文章分类', [
@@ -49,13 +65,12 @@ class ArticlesController extends AdminController
             ]);
             if (Admin::user()->can('chief-editor')) {
                 $selector->select('is_recommend', '首页推荐', [
-                    -1 => '申请',
-                    1 => '推荐',
+                    -1 => '申请列表',
+                    1 => '推荐列表',
                 ]);
             }
 
         });
-
 
         // 审核状态过滤
         // $grid->model()->whereIn('status', [0]);
@@ -70,7 +85,18 @@ class ArticlesController extends AdminController
             return Category::find($CategoryId)->name;
         });
         // $grid->column('order', __('Order'));
-        $grid->status('审核状态')->using(['0' => '未审核', '1' => '通过', '2'=>'复审']);
+        $grid->status('审核状态')->using([
+            0 => '未审核',
+            1 => '通过',
+            2 => '复审',
+            -1 => '未通过',
+        ], '未知')->dot([
+            0 => 'info',
+            1 => 'success',
+            2 => 'primary',
+            -1 => 'danger',
+        ], 'warning');
+        // $grid->status('审核状态')->using(['0' => '未审核', '1' => '通过', '2'=>'复审']);
         $grid->created_at('发布时间')->sortable();
         $grid->updated_at('修改时间')->sortable();
 
@@ -142,7 +168,7 @@ class ArticlesController extends AdminController
             $form->select('status', '审核状态')->options($status)->when(1, function(Form $form) {
 
                 // 编辑权限 推荐申请
-                if (Admin::user()->can('editor')) {
+                if (!Admin::user()->can('chief-editor')) {
 
                     $arr = request()->route()->parameters();
                     $id = (isset($arr['article'])?$arr['article']:0);
@@ -155,13 +181,10 @@ class ArticlesController extends AdminController
                         $form->radioButton('is_recommend', '是否推荐')->options(['-1' => '推荐', '0'=> '不推荐'])->default('0');
                     }
 
-                }
-
-                // 高级编辑权限
-                if (Admin::user()->can('chief-editor')) {
+                } else {
+                    // 高级编辑权限
                     $form-> switch('is_recommend', '推荐');
                 }
-
 
             // 未审核通过,提交修改意见
             })->when(-1, function (Form $form) {
@@ -177,19 +200,17 @@ class ArticlesController extends AdminController
             // 第二次审核->复审是否通过->是否推荐
             $status = [
                 1 => '通过',
-                -2 => '不通过',
+                -1 => '不通过',
             ];
 
             // 复审通过
             $form->select('status', '二次审核')->options($status)->when(1, function(Form $form) {
 
                 // 编辑权限 推荐申请
-                if (Admin::user()->can('editor')) {
+                if (!Admin::user()->can('chief-editor')) {
                     $form->radioButton('is_recommend', '是否推荐')->options(['-1' => '推荐', '0'=> '不推荐'])->default('0');
-                }
-
-                // 高级编辑权限
-                if (Admin::user()->can('chief-editor')) {
+                } else {
+                    // 高级编辑权限
                     $form-> switch('is_recommend', '推荐');
                 }
 

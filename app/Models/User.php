@@ -8,10 +8,11 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
-use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
+// use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Encore\Admin\Traits\DefaultDatetimeFormat;
 
-class User extends Authenticatable implements MustVerifyEmailContract, JWTSubject
+// class User extends Authenticatable implements MustVerifyEmailContract, JWTSubject
+class User extends Authenticatable implements JWTSubject
 {
     use Traits\LastActivedAtHelper;
     use Traits\ActiveUserHelper;

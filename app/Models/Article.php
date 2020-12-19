@@ -71,6 +71,7 @@ class Article extends Model
         return visits($this);
     }
 
+    // 软删除
     protected static function boot()
     {
         parent::boot();

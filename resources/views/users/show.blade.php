@@ -11,7 +11,11 @@
     <img class="card-img-top" src="{{$user->avatar}}" alt="{{ $user->name }}">
       <div class="card-body">
             <h5><strong>个人简介</strong></h5>
+            @if($user->introduction)
             <p>{{$user->introduction}}</p>
+            @else
+            <p>这个人很懒...什么也没有留下</p>
+            @endif
             <hr>
 
             <h5><strong>最后活跃</strong></h5>
@@ -103,7 +107,6 @@
         @endif
 
       @endif
-
 
       </div>
     </div>
