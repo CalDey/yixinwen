@@ -1742,16 +1742,16 @@
         },
         {
             "name": "jxlwqq/simditor",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-admin-extensions/simditor.git",
-                "reference": "6c5c2c826e6280a8b30aec67cebc27dc3905eb46"
+                "reference": "7e6f031a13e8fdf9f654c270c54470ee63e8bfd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-admin-extensions/simditor/zipball/6c5c2c826e6280a8b30aec67cebc27dc3905eb46",
-                "reference": "6c5c2c826e6280a8b30aec67cebc27dc3905eb46",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/simditor/zipball/7e6f031a13e8fdf9f654c270c54470ee63e8bfd0",
+                "reference": "7e6f031a13e8fdf9f654c270c54470ee63e8bfd0",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1798,9 +1798,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel-admin-extensions/simditor/issues",
-                "source": "https://github.com/laravel-admin-extensions/simditor/tree/1.0.3"
+                "source": "https://github.com/laravel-admin-extensions/simditor/tree/1.0.4"
             },
-            "time": "2019-08-07T07:46:42+00:00"
+            "time": "2020-11-20T05:26:04+00:00"
         },
         {
             "name": "laravel/framework",

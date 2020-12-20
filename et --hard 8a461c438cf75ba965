@@ -1,0 +1,395 @@
+[33mcommit 4faec3d8ebc3efeba2572290dda26a7376549250[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Dec 20 03:02:13 2020 +0000
+
+    邮箱验证
+
+[33mcommit 8455bcaeb67e8363e1bc477260099c2e1db978d2[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Dec 20 02:36:36 2020 +0000
+
+    Updated database configuration
+
+[33mcommit a6ee39d9e80f929339e6e251a64b4d65904ba49d[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Dec 20 01:30:27 2020 +0000
+
+    update
+
+[33mcommit ffbc28e81bf3eb9431311a05f8493928fd784362[m
+Author: vagrant <vagrant@homestead>
+Date:   Sat Dec 19 15:37:14 2020 +0000
+
+    Procfile for Heroku
+
+[33mcommit 383992d8938d737e9345526d2244250b50b2e7d9[m
+Author: vagrant <vagrant@homestead>
+Date:   Sat Dec 19 14:16:16 2020 +0000
+
+    Procfile for Heroku
+
+[33mcommit 78b4ac0739128cb2612cdd38e9e335e43ac674b4[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Dec 1 11:42:10 2020 +0000
+
+    用户信息
+
+[33mcommit 753eb1489ec895783e01e9477076c9c4853bb063[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Dec 1 10:59:30 2020 +0000
+
+    快速生成jwt
+
+[33mcommit adca954af36cc4b85e4245cd61428e83989f93a2[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Dec 1 10:15:28 2020 +0000
+
+    使用JWT
+
+[33mcommit 7d68fadec0da8065eec50b4357af3ead0d94f041[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Dec 1 09:12:19 2020 +0000
+
+    微信登录
+
+[33mcommit 7a729c22063a6641005abd161b37c49494783682[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Dec 1 08:41:29 2020 +0000
+
+    add socialite
+
+[33mcommit 0f082a75079409d12270d246b025a15747341078[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 30 14:29:31 2020 +0000
+
+    图片验证码
+
+[33mcommit ef01e7653d5d2c5d3013442c2bed2c3c54e83b05[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 30 12:55:50 2020 +0000
+
+    用户注册
+
+[33mcommit 1dace3f3d85f5a0ae486dae26d4c647798528ea4[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 30 12:28:00 2020 +0000
+
+    发送短信验证码
+
+[33mcommit 1cb37eb4783350810b54662f0c9507ced93d19da[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 30 08:43:13 2020 +0000
+
+    短信调试
+
+[33mcommit 506edb859e116a295500e39e0b85c9462264f130[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 29 13:46:42 2020 +0000
+
+    API基础配置
+
+[33mcommit 5f423e2b1c382bfc12494a7f046cd86213e4f04b[m
+Author: vagrant <vagrant@homestead>
+Date:   Wed Nov 18 08:36:46 2020 +0000
+
+    邮箱认证
+
+[33mcommit 412653da8ff92ef8789968386eaa62e2380018d4[m
+Author: vagrant <vagrant@homestead>
+Date:   Wed Nov 18 04:17:55 2020 +0000
+
+    用户最后活跃时间
+
+[33mcommit aa6c5159317ba0b1f5dbd230b7c4f88cdc18fe73[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 17 15:53:20 2020 +0000
+
+    文章访问人数
+
+[33mcommit 1e3c603fbbaa58effd9fee9c7b4823497d2a0ba2[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 17 06:55:59 2020 +0000
+
+    活跃用户
+
+[33mcommit f87b402331a979cceaea00dad2321c87df10548b[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 17 06:13:24 2020 +0000
+
+    后台评论管理
+
+[33mcommit b2ed9057d8582cbe6f807242bc67e10b4ec3ef38[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 16 07:36:50 2020 +0000
+
+    删除评论
+
+[33mcommit 8633933f5bcc9d5e740e0915ae7806082319ffe0[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 16 07:18:19 2020 +0000
+
+    消息通知列表
+
+[33mcommit c31e38b7ca359de08c5462f1c12a53ec18ad2505[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 16 06:50:44 2020 +0000
+
+    消息通知
+
+[33mcommit 198c420c90cb104e519da7af8c9b4b9c6b359e28[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 15 13:11:28 2020 +0000
+
+    用户可以发表评论
+
+[33mcommit b9b22ec8f867b5bf1a995440cac71d05059bdbe6[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 15 08:32:50 2020 +0000
+
+    回复列表
+
+[33mcommit 6235eea50f7a10ee5a20700128679f428fb446bf[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 15 07:46:52 2020 +0000
+
+    回复数据
+
+[33mcommit f3985086701f9649b8a71fff21280dd2ee2866a4[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 15 06:37:23 2020 +0000
+
+    翻译队列化
+
+[33mcommit 00a2a260d922ea4d338006e2ffb114e67c697048[m
+Author: vagrant <vagrant@homestead>
+Date:   Sat Nov 14 12:58:23 2020 +0000
+
+    翻译url标识
+
+[33mcommit ec1ff082d98fd83edf7fe20c5865257e372ec746[m
+Author: vagrant <vagrant@homestead>
+Date:   Sat Nov 14 08:38:07 2020 +0000
+
+    修复xss注入漏洞
+
+[33mcommit f72f255c763588e08ed3973973abb8de3a7664ff[m
+Author: vagrant <vagrant@homestead>
+Date:   Sat Nov 14 07:32:20 2020 +0000
+
+    话题排序
+
+[33mcommit cc8ac462ecd570da064086caefce1cddeb7d5a77[m
+Author: vagrant <vagrant@homestead>
+Date:   Sat Nov 14 06:36:57 2020 +0000
+
+    修复文章详情页显示bug
+
+[33mcommit cae96528f7c1253c2da7b749124122830dcc0039[m
+Author: vagrant <vagrant@homestead>
+Date:   Sat Nov 14 06:08:50 2020 +0000
+
+    后台功能补全
+
+[33mcommit ca6d28ba5b9b46a8c990ee3b8ee626b5b52b0abf[m
+Author: vagrant <vagrant@homestead>
+Date:   Fri Nov 13 14:31:42 2020 +0000
+
+    主页样式改进
+
+[33mcommit a5ebbf8e2ad5146d9a727558feed29e9b0c668c1[m
+Author: vagrant <vagrant@homestead>
+Date:   Fri Nov 13 13:24:40 2020 +0000
+
+    推荐模块
+
+[33mcommit 884eab3f4d490e655b9e1938eb89619ad981c973[m
+Author: vagrant <vagrant@homestead>
+Date:   Thu Nov 12 15:39:38 2020 +0000
+
+    审核模块
+
+[33mcommit ba7844304c8edeba023df413773e944aaee06945[m
+Author: vagrant <vagrant@homestead>
+Date:   Wed Nov 11 10:10:15 2020 +0000
+
+    初始化后台
+
+[33mcommit 1f58b0c55a416ee229d255b1635d20049f67bd39[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 11:50:57 2020 +0000
+
+    用户可以删除自己发布的文章
+
+[33mcommit 27f947913fc1bbc547e592a5e521ef15d63a437c[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 11:04:43 2020 +0000
+
+    用户可以编辑文章
+
+[33mcommit d342ab56565fd59dcc5dcac4ac0ec963018d3ead[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 10:22:50 2020 +0000
+
+    文章详情页
+
+[33mcommit 434553fc2e5d3f13257f8717f330b459bf5dadcc[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 10:15:07 2020 +0000
+
+    用户上传图片
+
+[33mcommit d66c9d89c26e3bbf94b58422a2009b2a7e84e248[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 10:05:11 2020 +0000
+
+    文本编辑器
+
+[33mcommit 3f21b2e8bbd7e865c3bd6c8e9170333fb7b0af97[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 09:46:50 2020 +0000
+
+    用户可以创建文章
+
+[33mcommit f79ccd0c396b914d2e1a872783e3d521b47f80b0[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 08:21:34 2020 +0000
+
+    用户文章列表
+
+[33mcommit 3991a0f9c7f29aed1d3623adf838f3c012fabccd[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Nov 10 05:52:22 2020 +0000
+
+    分类文章列表
+
+[33mcommit c4e65e92cba9d7b67acae08f7acbc4db909a9d81[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 13:42:07 2020 +0000
+
+    修复N+1
+
+[33mcommit f63216783f70880d8c2a588e7602601799123fc5[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 13:36:37 2020 +0000
+
+    文章列表页面
+
+[33mcommit 65c02da1f324e3f35b8b7d3d8d20d3c15d2405aa[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 13:14:52 2020 +0000
+
+    填充用户和文章数据
+
+[33mcommit 422933750dd7837b5396a57c031b0cdbc3c2b782[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 13:06:12 2020 +0000
+
+    生成文章骨架
+
+[33mcommit 9267e5ec93ed9b25c928614b81f0c2529f9a6d3f[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 13:02:41 2020 +0000
+
+    新增generator拓展
+
+[33mcommit 7144cd71d7bb32a9257e960a6f9f1a4309de6762[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 12:58:31 2020 +0000
+
+    分类模型和数据
+
+[33mcommit d126613646dc878e7c154cd5ba54eb03475bf870[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 09:04:02 2020 +0000
+
+    授权访问
+
+[33mcommit 3e0ec7e36f89f79b1d41395a8312b253e8abfea5[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 08:47:48 2020 +0000
+
+    限制头像分辨率
+
+[33mcommit 88037e71d7fbe1fc06370e37264f0164b525ae2f[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 08:46:03 2020 +0000
+
+    显示头像
+
+[33mcommit 05baa54c771c3707fef776f1cd7e2ef0bd966cd8[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 08:41:05 2020 +0000
+
+    上传头像
+
+[33mcommit 94aeb132926bcb726d77511099413c477a8acef1[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 08:27:54 2020 +0000
+
+    编辑个人资料
+
+[33mcommit 11489eaa907cb010ee00282bd4e10c9ca1d940b5[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 08:05:56 2020 +0000
+
+    编辑个人资料
+
+[33mcommit c28122efe525937fe4a6f43a10ff828854cc0f73[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 07:35:24 2020 +0000
+
+    用户个人页面原型
+
+[33mcommit 16f3f1974ffc6bfab2debde4646963b6f765a851[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 06:47:43 2020 +0000
+
+    修复跳转链接
+
+[33mcommit d1d19ddc19e04b33ea1deaff15f2ddaddf42ed32[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Nov 9 06:28:48 2020 +0000
+
+    生成用户认证代码
+
+[33mcommit d9cc05d7514d722155699e1d6b7ac8eb299da1ef[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 8 13:38:19 2020 +0000
+
+    增加字体图标
+
+[33mcommit 2e6291a088a5c80afd511dcd730c3f4e2807b58f[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 8 13:24:55 2020 +0000
+
+    静态文件浏览器缓存问题
+
+[33mcommit f294f1e13a5276b5c0009ffae356941229ed8180[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 8 13:19:32 2020 +0000
+
+    基础页面结构
+
+[33mcommit 0b28a6ec40f81ec1ee134115c62c3a1531a5e979[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 8 12:07:05 2020 +0000
+
+    新增自定义辅助函数
+
+[33mcommit 42a3b51453296355c5fd4f41786141c72c21d651[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 8 12:04:33 2020 +0000
+
+    修改配置信息
+
+[33mcommit ea54b753f55d52fc7dd9959b6e41538cd955388a[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 8 12:02:12 2020 +0000
+
+    Add .editorconfig
+
+[33mcommit ca3038bf7c183978b7fe8b87a3e4cf44733eb821[m
+Author: vagrant <vagrant@homestead>
+Date:   Sun Nov 8 11:50:54 2020 +0000
+
+    初始化
