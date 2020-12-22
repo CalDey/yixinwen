@@ -26,4 +26,13 @@ class ArticlesController extends Controller
         $article->update($request->all());
         return new ArticleResource($article);
     }
+
+    public function destroy(Article $article)
+    {
+        $this->authorize('destroy', $article);
+
+        $article->delete();
+
+        return response(null, 204);
+    }
 }
