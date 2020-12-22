@@ -41,6 +41,15 @@ class ArticlesController extends Controller
         return ArticleResource::collection($articles);
     }
 
+    public function show($articleId)
+    {
+        $article = QueryBuilder::for(Article::class)
+                ->allowedIncludes('user','category')
+                ->findOrFail($articleId);
+
+        return new ArticleResource($article);
+    }
+
     public function store(ArticleRequest $request, Article $article)
     {
         $article->fill($request->all());
