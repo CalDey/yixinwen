@@ -60,6 +60,12 @@ Route::prefix('v1')
                 // 分类列表
                 Route::get('categories', 'CategoriesController@index')
                         ->name('categories.index');
+                // 文章列表
+                Route::resource('articles', 'ArticlesController')
+                        ->only(['index','show']);
+                // 某个用户发表的文章
+                Route::get('users/{user}/articles', 'ArticlesController@userIndex')
+                        ->name('users.articles.index');
 
                 // 登录后可以访问的接口
                 Route::middleware('auth:api')->group(function() {
