@@ -18,4 +18,12 @@ class ArticlesController extends Controller
 
         return new ArticleResource($article);
     }
+
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $this->authorize('update', $article);
+
+        $article->update($request->all());
+        return new ArticleResource($article);
+    }
 }
