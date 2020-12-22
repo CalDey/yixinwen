@@ -63,6 +63,12 @@ Route::prefix('v1')
                 // 文章列表
                 Route::resource('articles', 'ArticlesController')
                         ->only(['index','show']);
+                // 评论列表
+                Route::get('articles/{article}/replies','RepliesController@index')
+                        ->name('articles.replies.index');
+                // 某个用户的评论列表
+                Route::get('users/{user}/replies', 'RepliesController@userIndex')
+                        ->name('users.replies.index');
                 // 某个用户发表的文章
                 Route::get('users/{user}/articles', 'ArticlesController@userIndex')
                         ->name('users.articles.index');
@@ -83,6 +89,9 @@ Route::prefix('v1')
                     // 发布评论
                     Route::post('articles/{article}/replies', 'RepliesController@store')
                         ->name('articles.replies.store');
+                    // 删除评论
+                    Route::delete('articles/{article}/replies/{reply}', 'RepliesController@destroy')
+                        ->name('articles.replies.destroy');
 
                 });
             });
