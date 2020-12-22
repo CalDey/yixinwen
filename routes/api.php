@@ -80,6 +80,9 @@ Route::prefix('v1')
                         ->name('image.store');
                     // 发布文章
                     Route::resource('articles', 'ArticlesController')->only(['store','update','destroy']);
+                    // 发布评论
+                    Route::post('articles/{article}/replies', 'RepliesController@store')
+                        ->name('articles.replies.store');
 
                 });
             });
