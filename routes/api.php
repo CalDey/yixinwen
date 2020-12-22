@@ -72,6 +72,9 @@ Route::prefix('v1')
                     // 上传照片
                     Route::post('images', 'ImagesController@store')
                         ->name('image.store');
+                    // 发布文章
+                    Route::resource('articles', 'ArticlesController')->only(['store','update','destroy']);
+
                 });
             });
     });
