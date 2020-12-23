@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/','PagesController@root')->name('root');
-Route::get('/','ArticlesController@recommend')->name('root')->middleware('verified');
+// 邮箱认证
+// Route::get('/','ArticlesController@recommend')->name('root')->middleware('verified');
+Route::get('/','ArticlesController@recommend')->name('root');
 
 Auth::routes(['verify' => true ]);
 
